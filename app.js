@@ -1,8 +1,18 @@
 var http = require('http');
-var port = port = process.env.PORT || 80;
+var port = process.env.PORT || 8080;
 
-http.createServer(function (req, res) {
+var server = http.createServer(function (req, res) {
+  var command = req.url;
+  if (command == '/build') {
+  	console.log ('building in Jenkins...');
+  } else {
+  	console.log ('nothing to be executed for command=' + command);
+  }
+
   res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello Node.JS!');
-}).listen(port);
-console.log('Server running at http://localhost:8080/');
+  res.end('Jenkins via Google Assistant');
+});
+
+server.listen(port);
+
+console.log('Server running at http://localhost:'+port+'/');
