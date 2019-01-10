@@ -14,7 +14,7 @@ var server = http.createServer(function (req, res) {
   var objToJson = {
 	  "payload": {
 	    "google": {
-	      "expectUserResponse": true,
+	      "expectUserResponse": false,
 	      "richResponse": {
 	        "items": [
 	          {
