@@ -9,8 +9,8 @@ var server = http.createServer(function (req, res) {
   	console.log ('nothing to be executed for command=' + command);
   }
 
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Jenkins via Google Assistant');
+  res.writeHead(200, {'Content-Type': 'application/json'});
+  res.end('{"response":"Jenkins via Google Assistant"}');
 });
 
 server.listen(port);
