@@ -1,4 +1,4 @@
-var socket = require('socket.io-client')('http://localhost:8080');
+var socket = require('socket.io-client')('https://jenkinsassistant.herokuapp.com/');//('http://localhost:8080');
 socket.on('connect', function(){
   console.log('connected to server')
 });

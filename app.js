@@ -1,5 +1,5 @@
 var http = require('http');
-var port = 8080;//process.env.PORT || 80;
+var port = process.env.PORT || 80;
 
 var server = http.createServer(function (req, res) {
   var command = req.url;
@@ -35,20 +35,12 @@ var server = http.createServer(function (req, res) {
 });
 
 server.listen(port);
-
-<<<<<<< HEAD
 var io = require('socket.io').listen(server);
-
 io.on('connection', function(socket) {
   console.log('client has connected.');
-
-  //disconnecting event
-  socket.on('disconnect', function() {
-    console.log('client has disconnected')
+  socket.on('disconnect', function(){
+    console.log('client has disconnected.');
   })
-
 })
 
-=======
->>>>>>> 53213f4d40ef8dbfd6c290db029d5ccaa02b0002
 console.log('Server running at http://localhost:'+port+'/');
