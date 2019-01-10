@@ -1,5 +1,5 @@
 var http = require('http');
-var port = process.env.PORT || 80;
+var port = 8080;//process.env.PORT || 80;
 
 var server = http.createServer(function (req, res) {
   var command = req.url;
@@ -8,6 +8,9 @@ var server = http.createServer(function (req, res) {
   } else {
   	console.log ('nothing to be executed for command=' + command);
   }
+
+  //notifying clients
+  io.emit('build');
 
   res.writeHead(200, {'Content-Type': 'application/json'});
   //res.end('{"response":"Jenkins via Google Assistant"}');
@@ -32,5 +35,17 @@ var server = http.createServer(function (req, res) {
 });
 
 server.listen(port);
+
+var io = require('socket.io').listen(server);
+
+io.on('connection', function(socket) {
+  console.log('client has connected.');
+
+  //disconnecting event
+  socket.on('disconnect', function() {
+    console.log('client has disconnected')
+  })
+
+})
 
 console.log('Server running at http://localhost:'+port+'/');
