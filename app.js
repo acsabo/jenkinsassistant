@@ -19,7 +19,7 @@ var server = http.createServer(function (req, res) {
 	        "items": [
 	          {
 	            "simpleResponse": {
-	              "textToSpeech": "Goodbye!"
+	              "textToSpeech": "Ok, I am sending your request to jenkins right now. You'll receive a message when it is done."
 	            }
 	          }
 	        ]
