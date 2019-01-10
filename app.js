@@ -36,6 +36,7 @@ var server = http.createServer(function (req, res) {
 
 server.listen(port);
 
+<<<<<<< HEAD
 var io = require('socket.io').listen(server);
 
 io.on('connection', function(socket) {
@@ -48,4 +49,6 @@ io.on('connection', function(socket) {
 
 })
 
+=======
+>>>>>>> 53213f4d40ef8dbfd6c290db029d5ccaa02b0002
 console.log('Server running at http://localhost:'+port+'/');
