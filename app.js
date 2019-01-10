@@ -10,7 +10,25 @@ var server = http.createServer(function (req, res) {
   }
 
   res.writeHead(200, {'Content-Type': 'application/json'});
-  res.end('{"response":"Jenkins via Google Assistant"}');
+  //res.end('{"response":"Jenkins via Google Assistant"}');
+  var objToJson = {
+	  "payload": {
+	    "google": {
+	      "expectUserResponse": false,
+	      "richResponse": {
+	        "items": [
+	          {
+	            "simpleResponse": {
+	              "textToSpeech": "Goodbye!"
+	            }
+	          }
+	        ]
+	      }
+	    }
+	  }
+	};
+
+  res.end(JSON.stringify(objToJson));
 });
 
 server.listen(port);
